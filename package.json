@@ -1,0 +1,23 @@
+{
+  "name": "full-stack_task_manager",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Himani-prog/full-stack_task_manager.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Himani-prog/full-stack_task_manager/issues"
+  },
+  "homepage": "https://github.com/Himani-prog/full-stack_task_manager#readme",
+  "dependencies": {
+    "express": "^5.1.0"
+  }
+}
