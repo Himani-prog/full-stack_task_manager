@@ -1,5 +1,4 @@
-import { json } from "body-parser";
-import Task from "../models/taskModel";
+import Task from "../models/taskModel.js";
 
 //CREATE A NEW TASK
 export const createTask = async (req, res) => {
@@ -55,7 +54,7 @@ export const updateTask = async (req, res) => {
             data.completed = data.completed === 'Yes' || data.completed == true;
         }
 
-        const update = await Task.findOneAndUpdate(
+        const updated = await Task.findOneAndUpdate(
             { _id: req.params.id, owner: req.user.id },
             data,
             { new: true, runValidators: true }
@@ -77,7 +76,7 @@ export const deleteTask = async (req, res) => {
         const deleted = await Task.findOneAndDelete({ _id: req.params.id, owner: req.user.id });
 
         if (!deleted) return res.status(404).json({ success: false, message: "Task not found or not yours" });
-        res.json({ success: trusted, message: "Task deleted" });
+        res.json({ success: true, message: "Task deleted" });
     }
     catch (err) {
         res.status(500).json({ success: false, message: err.message });
