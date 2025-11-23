@@ -94,7 +94,7 @@ export async function updateProfile(req, res) {
     try {
         const exist = await User.findOne({ email, _id: { $ne: req.user.id } });
 
-        if (exists) {
+        if (exist) {
             return res.status(400).json({ success: false, message: "Email already in use by another account." });
         } const user = await User.findByIdAndUpdate(
             req.user.is,

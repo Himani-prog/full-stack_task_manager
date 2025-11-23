@@ -3,7 +3,7 @@ import Navbar from './Navbar'
 import Sidebar from './Sidebar';
 import { Outlet } from 'react-router-dom';
 import axios from 'axios'
-import { Clock, TrendingUp } from 'lucide-react'
+import { Circle, Clock, TrendingUp, Zap } from 'lucide-react'
 
 const Layout = ({ onLogout, user }) => {
 
@@ -102,7 +102,7 @@ const Layout = ({ onLogout, user }) => {
 
             <div className=' ml-0 xl:ml-64 lg:ml-16 pt-16 p-3 sm:p-4 md:p-4 transition-all duration-300' >
                 <div className=' grid grid-cols-1 xl:grid-cols-3 gap-4 sm:gap-6' >
-                    <div className=' xl:col-soan-2 space-y-3 sm:space-y-4'>
+                    <div className=' xl:col-span-2 space-y-3 sm:space-y-4'>
                         <Outlet context={{ tasks, refresfTasks: fetchTasks }} />
                     </div>
 
@@ -166,12 +166,12 @@ const Layout = ({ onLogout, user }) => {
                                             ${task.completed ? 'bg-green-100 text-green-700'
                                                 : 'bg-fuchsia-100 text-fuchsia-700'
                                             }`}>
-                                            {task.completed ? "Done" : "Pending"}
+                                            {tasks.completed ? "Done" : "Pending"}
                                         </span>
                                     </div>
                                 ))}
 
-                                {task.length === 0 && (
+                                {tasks.length === 0 && (
                                     <div className=' text-center py-4 sm:py-6 px-2'>
                                         <div className=' w-12 h-12 sm:w-16 sm:h-16 mx-auto sm:mb-4 rounded-full bg-purple-100 flex items-center justify-center'>
                                             <Clock className=' w-6 h-6 sm:h-8 text-purple-500' />
